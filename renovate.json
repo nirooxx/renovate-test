@@ -4,7 +4,8 @@
   ],
   "semanticCommits": "enabled",
   "enabledManagers": [
-    "npm"
+    "npm",
+    "dockerfile"
   ],
   "branchPrefix": "deps/",
   "timezone": "Europe/Berlin",
@@ -55,8 +56,6 @@
       ]
     }
   ],
-  "automerge": true,
-  "platformAutomerge": true,
   "lockFileMaintenance": {
     "enabled": true
   }
