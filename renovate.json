@@ -1,6 +1,6 @@
 {
   "extends": [
-    ":pinAllExceptPeerDependencies"
+    "config:recommended"
   ],
   "semanticCommits": "enabled",
   "enabledManagers": [
