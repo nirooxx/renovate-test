@@ -1,0 +1,11 @@
+{
+    "extends": ["config:base"],
+    "semanticCommits": "enabled",
+    "packageRules": [
+      {
+        "matchPackagePatterns": ["*"],
+        "semanticCommitType": "chore"
+      }
+    ]
+  }
+  
