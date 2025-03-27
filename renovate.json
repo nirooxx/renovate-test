@@ -1,11 +1,14 @@
 {
-    "extends": ["config:base"],
-    "semanticCommits": "enabled",
-    "packageRules": [
-      {
-        "matchPackagePatterns": ["*"],
-        "semanticCommitType": "chore"
-      }
-    ]
-  }
-  
+  "extends": [
+    "config:recommended"
+  ],
+  "semanticCommits": "enabled",
+  "packageRules": [
+    {
+      "semanticCommitType": "chore",
+      "matchPackageNames": [
+        "*"
+      ]
+    }
+  ]
+}
