@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config:recommended"
+    ":pinAllExceptPeerDependencies"
   ],
   "semanticCommits": "enabled",
   "enabledManagers": [
@@ -9,7 +9,6 @@
   ],
   "branchPrefix": "deps/",
   "timezone": "Europe/Berlin",
-  "prConcurrentLimit": 20,
   "packageRules": [
     {
       "matchCategories": [
