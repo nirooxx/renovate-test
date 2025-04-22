@@ -9,18 +9,25 @@
     "prHourlyLimit": 0,
     "prConcurrentLimit": 0,
     "automerge": true,
+    "automergeType": "pr",
     "platformAutomerge": true,
+    "platformAutomergeType": "merge",
     "addLabels": ["renovate", "dependencies"],
     "additionalReviewers": ["nirooxx"],
     "reviewersSampleSize": 1,
     "packageRules": [
     {
+        "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
         "matchPackageNames": ["*"],
+        "automerge": true,
+        "automergeType": "pr",
         "semanticCommitType": "chore"
     },
     {
         "groupName": "GitHub Actions",
-        "matchPackagePatterns": ["^@actions/"]
+        "matchPackagePatterns": ["^@actions/"],
+        "automerge": true,
+        "automergeType": "pr"
     },
     {
         "groupName": "TypeScript Build Tools",
@@ -29,7 +36,9 @@
         "ts-jest",
         "@tsconfig/node22",
         "tsx"
-        ]
+        ],
+        "automerge": true,
+        "automergeType": "pr"
     },
     {
         "groupName": "Linting Tools",
@@ -37,7 +46,9 @@
         "eslint",
         "@sap/eslint-config",
         "prettier"
-        ]
+        ],
+        "automerge": true,
+        "automergeType": "pr"
     },
     {
         "groupName": "Testing Frameworks",
@@ -45,12 +56,16 @@
         "jest",
         "@jest/globals",
         "jest-environment-node"
-        ]
+        ],
+        "automerge": true,
+        "automergeType": "pr"
     },
     {
         "groupName": "Docker Dependencies",
         "matchCategories": ["dockerfile"],
-        "enabled": true
+        "enabled": true,
+        "automerge": true,
+        "automergeType": "pr"
     }
     ]
   }
