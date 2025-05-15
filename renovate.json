@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":pinAllExceptPeerDependencies"],
+  "extends": ["config:recommended", "docker:enableMajor", ":pinAllExceptPeerDependencies"],
   "semanticCommits": "enabled",
   "enabledManagers": ["npm", "dockerfile"],
   "branchPrefix": "deps/",
@@ -53,6 +53,7 @@
     {
       "groupName": "Docker Dependencies",
       "matchManagers": ["dockerfile"],
+      "matchUpdateTypes": ["major","minor","patch","digest"],
       "automerge": true,
       "automergeType": "pr",
       "platformAutomerge": true,
