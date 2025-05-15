@@ -16,30 +16,6 @@
   "automergeType": "pr",
   "platformAutomerge": true,
   "automergeStrategy": "merge-commit",
-
-   "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["(^|/)Dockerfile$"],
-      "matchStrings": [
-        "^FROM\\s+(?<depName>[^:\\s]+):(?<currentValue>\\d+\\.\\d+\\.\\d+)-alpine"
-      ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "{{depName}}-alpine"
-    }
-  ],
-
-   "regexManagers": [
-    {
-      "fileMatch": ["(^|/)Dockerfile$"],
-      "matchStrings": [
-        "^FROM\\s+(?<depName>[^:\\s]+):(?<currentValue>\\d+\\.\\d+\\.\\d+)-alpine"
-      ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "{{depName}}-alpine"
-    }
-  ],
-
   "packageRules": [
     {
       "matchManagers": ["npm"],
@@ -73,6 +49,7 @@
     },
     {
       "groupName": "Docker Images",
+      "matchPackageNames": ["node"],
       "matchManagers": ["dockerfile", "docker-compose"],
       "matchDatasources": ["docker"],
       "matchUpdateTypes": ["major", "minor", "patch", "digest"],
