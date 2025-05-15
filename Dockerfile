@@ -1,6 +1,5 @@
 # Sample Dockerfile for Renovate testing
-
-FROM node:18-alpine
+FROM node:14.5.0-alpine
 
 WORKDIR /app
 
