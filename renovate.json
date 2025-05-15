@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended", "docker:enableMajor", ":pinAllExceptPeerDependencies", "customManagers:dockerfileVersions"],
   "semanticCommits": "enabled",
-  "enabledManagers": ["npm", "dockerfile"],
+  "enabledManagers": ["npm", "dockerfile", "docker-compose"],
   "branchPrefix": "deps/",
   "timezone": "Europe/Berlin",
   "schedule": ["at any time"],
@@ -11,17 +11,6 @@
   "regexManagers": [
     {
       "fileMatch": ["(^|/)Dockerfile$"],
-      "matchStrings": [
-        "^FROM\\s+(?<depName>[^:\\s]+):(?<currentValue>\\d+\\.\\d+\\.\\d+)-alpine"
-      ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "{{depName}}-alpine"
-    }
-  ],
- "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["(^|/)Dockerfile$"],
       "matchStrings": [
         "^FROM\\s+(?<depName>[^:\\s]+):(?<currentValue>\\d+\\.\\d+\\.\\d+)-alpine"
       ],
