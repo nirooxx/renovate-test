@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", "docker:enableMajor", ":pinAllExceptPeerDependencies"],
+  "extends": ["config:recommended", "docker:enableMajor", ":pinAllExceptPeerDependencies", "customManagers:dockerfileVersions"],
   "semanticCommits": "enabled",
   "enabledManagers": ["npm", "dockerfile"],
   "branchPrefix": "deps/",
@@ -18,10 +18,20 @@
       "depNameTemplate": "{{depName}}-alpine"
     }
   ],
-
+ "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["(^|/)Dockerfile$"],
+      "matchStrings": [
+        "^FROM\\s+(?<depName>[^:\\s]+):(?<currentValue>\\d+\\.\\d+\\.\\d+)-alpine"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "{{depName}}-alpine"
+    }
+  ],
   "packageRules": [
     {
-      "matchManagers": ["npm"],
+      "matchManagers": ["npm, dockerfile"],
       "matchDepTypes": ["dependencies","devDependencies","peerDependencies"],
       "matchUpdateTypes": ["major","minor","patch","pin","digest"],
       "semanticCommitType": "chore",
