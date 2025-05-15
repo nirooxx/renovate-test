@@ -29,6 +29,17 @@
     }
   ],
 
+   "regexManagers": [
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": [
+        "^FROM\\s+(?<depName>[^:\\s]+):(?<currentValue>\\d+\\.\\d+\\.\\d+)-alpine"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "{{depName}}-alpine"
+    }
+  ],
+
   "packageRules": [
     {
       "matchManagers": ["npm"],
@@ -61,8 +72,9 @@
       "matchPackageNames": ["jest", "@jest/globals", "jest-environment-node"]
     },
     {
-      "groupName": "Docker Dependencies",
+      "groupName": "Docker Images",
       "matchManagers": ["dockerfile", "docker-compose"],
+      "matchDatasources": ["docker"],
       "matchUpdateTypes": ["major", "minor", "patch", "digest"],
       "automerge": true,
       "automergeType": "pr",
