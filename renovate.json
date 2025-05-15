@@ -8,11 +8,6 @@
   "schedule": ["at any time"],
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
-  "automerge": true,
-  "automergeType": "pr",
-  "platformAutomerge": true,
-  "automergeStrategy": "merge-commit",
-
   "regexManagers": [
     {
       "fileMatch": ["(^|/)Dockerfile$"],
@@ -29,7 +24,11 @@
       "matchManagers": ["npm"],
       "matchDepTypes": ["dependencies","devDependencies","peerDependencies"],
       "matchUpdateTypes": ["major","minor","patch","pin","digest"],
-      "semanticCommitType": "chore"
+      "semanticCommitType": "chore",
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true,
+      "automergeStrategy": "merge-commit"
     },
     {
       "groupName": "GitHub Actions",
@@ -53,7 +52,11 @@
     },
     {
       "groupName": "Docker Dependencies",
-      "matchManagers": ["dockerfile"]
+      "matchManagers": ["dockerfile"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true,
+      "automergeStrategy": "merge-commit"
     }
   ]
 }
