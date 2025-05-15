@@ -14,11 +14,14 @@
   "automerge": true,
   "automergeType": "pr",
   "platformAutomerge": true,
+  "automergeStrategy": "merge-commit",
   "packageRules": [
     {
       "matchUpdateTypes": ["major","minor","patch","pin","digest"],
       "matchPackageNames": ["*"],
-      "semanticCommitType": "chore"
+      "semanticCommitType": "chore",
+      "automerge": true,
+      "automergeType": "pr"
     },
     {
       "groupName": "GitHub Actions",
@@ -51,7 +54,8 @@
     },
     {
       "groupName": "Docker Dependencies",
-      "matchManagers": ["dockerfile"]
+      "matchManagers": ["dockerfile"],
+      "matchCategories": ["dockerfile"]
     }
   ]
 }
