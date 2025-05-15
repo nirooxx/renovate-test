@@ -14,10 +14,14 @@
   "automergeStrategy": "merge-commit",
   "packageRules": [
     {
-      "matchManagers": ["npm"],
+      "matchManagers": ["npm", "dockerfile"],
       "matchDepTypes": ["dependencies","devDependencies","peerDependencies"],
       "matchUpdateTypes": ["major","minor","patch","pin","digest"],
-      "semanticCommitType": "chore"
+      "semanticCommitType": "chore",
+        "automerge": true,
+        "automergeType": "pr",
+        "platformAutomerge": true,
+        "automergeStrategy": "merge-commit"
     },
     {
       "groupName": "GitHub Actions",
