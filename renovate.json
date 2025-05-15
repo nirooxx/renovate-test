@@ -12,50 +12,48 @@
   "automergeType": "pr",
   "platformAutomerge": true,
   "automergeStrategy": "merge-commit",
+
+  "regexManagers": [
+    {
+      "fileMatch": ["(^|/)Dockerfile$"],
+      "matchStrings": [
+        "^FROM\\s+(?<depName>[^:\\s]+):(?<currentValue>\\d+\\.\\d+\\.\\d+)-alpine"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "{{depName}}-alpine"
+    }
+  ],
+
   "packageRules": [
     {
-      "matchManagers": ["npm", "dockerfile"],
+      "matchManagers": ["npm"],
       "matchDepTypes": ["dependencies","devDependencies","peerDependencies"],
       "matchUpdateTypes": ["major","minor","patch","pin","digest"],
-      "semanticCommitType": "chore",
-        "automerge": true,
-        "automergeType": "pr",
-        "platformAutomerge": true,
-        "automergeStrategy": "merge-commit"
+      "semanticCommitType": "chore"
     },
     {
       "groupName": "GitHub Actions",
+      "matchManagers": ["npm"],
       "matchPackagePatterns": ["^@actions/"]
     },
     {
       "groupName": "TypeScript Build Tools",
-      "matchPackageNames": [
-        "typescript",
-        "ts-jest",
-        "@tsconfig/node22",
-        "tsx"
-      ]
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["typescript","ts-jest","@tsconfig/node22","tsx"]
     },
     {
       "groupName": "Linting Tools",
-      "matchPackageNames": [
-        "eslint",
-        "@sap/eslint-config",
-        "prettier"
-      ]
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["eslint","@sap/eslint-config","prettier"]
     },
     {
       "groupName": "Testing Frameworks",
-      "matchPackageNames": [
-        "jest",
-        "@jest/globals",
-        "jest-environment-node"
-      ]
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["jest","@jest/globals","jest-environment-node"]
     },
     {
       "groupName": "Docker Dependencies",
-      "matchManagers": ["dockerfile"],
-      "matchUpdateTypes": ["major","minor","patch","digest"]
+      "matchManagers": ["dockerfile"]
     }
   ]
 }
