@@ -18,14 +18,15 @@
   "automergeStrategy": "merge-commit",
   "packageRules": [
     {
-      "matchManagers": ["npm"],
-      "matchDepTypes": ["dependencies", "devDependencies", "peerDependencies"],
-      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
-      "semanticCommitType": "chore",
-        "automerge": true,
-        "automergeType": "pr",
-        "platformAutomerge": true,
-        "automergeStrategy": "merge-commit"
+    "matchManagers": ["npm", "dockerfile"],
+    "matchDepTypes": ["dependencies", "devDependencies", "peerDependencies"],
+    "matchDatasources": ["npm", "docker"],
+    "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
+    "semanticCommitType": "chore",
+    "automerge": true,
+    "automergeType": "pr",
+    "platformAutomerge": true,
+    "automergeStrategy": "merge-commit"
     },
     {
       "groupName": "GitHub Actions",
@@ -49,14 +50,9 @@
     },
     {
       "groupName": "Docker Images",
-      "matchPackageNames": ["node"],
-      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchManagers": ["dockerfile","docker-compose"],
       "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
-      "automerge": true,
-      "automergeType": "pr",
-       "platformAutomerge": true,
-       "automergeStrategy": "merge-commit"
+      "matchUpdateTypes": ["major","minor","patch","digest"]
     }
   ]
 }
