@@ -23,16 +23,16 @@
         "^FROM\\s+(?<depName>[^:\\s]+):(?<currentValue>\\d+\\.\\d+\\.\\d+)-alpine"
       ],
       "datasourceTemplate": "docker",
-      "depNameTemplate": "{{depName}}-alpine"
+      "depNameTemplate": "{{depName}}",
+      "extractVersionTemplate": "{{currentValue}}",
+      "versioningTemplate": "docker"
     }
   ],
   "packageRules": [
-    {
-      "matchManagers": ["npm", "dockerfile"],
+     {
+      "matchManagers": ["npm"],
       "matchDepTypes": ["dependencies", "devDependencies", "peerDependencies"],
-      "matchPackageNames": ["*","node"],
-      "matchDatasources": ["npm", "docker"],
-      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
+      "matchDatasources": ["npm"],
       "semanticCommitType": "chore",
       "automerge": true,
       "automergeType": "pr",
@@ -61,10 +61,9 @@
     },
     {
       "groupName": "Docker Images",
-      "matchManagers": ["dockerfile","docker-compose"],
-      "matchPackageNames": ["node"],
+      "matchManagers": ["dockerfile", "docker-compose"],
       "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major","minor","patch","digest"],
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
       "automerge": true,
       "automergeType": "pr",
       "platformAutomerge": true,
