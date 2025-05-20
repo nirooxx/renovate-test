@@ -30,7 +30,7 @@
     {
       "groupName": "GitHub Actions",
       "matchManagers": ["npm"],
-      "matchPackageNames": ["/^@actions\\//"]
+      "matchPackagePatterns": ["^@actions/"]
     },
     {
       "groupName": "TypeScript Build Tools",
