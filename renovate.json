@@ -17,6 +17,16 @@
   "platformAutomerge": true,
   "automergeStrategy": "merge-commit",
   "packageRules": [
+       {
+      "groupName": "Docker Images",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true,
+      "automergeStrategy": "merge-commit"
+    },
      {
       "matchManagers": ["npm"],
       "matchDepTypes": ["dependencies", "devDependencies", "peerDependencies"],
@@ -30,7 +40,7 @@
     {
       "groupName": "GitHub Actions",
       "matchManagers": ["npm"],
-      "matchPackagePatterns": ["^@actions/"]
+      "matchPackageNames": ["/^@actions\\//"]
     },
     {
       "groupName": "TypeScript Build Tools",
@@ -46,16 +56,6 @@
       "groupName": "Testing Frameworks",
       "matchManagers": ["npm"],
       "matchPackageNames": ["jest", "@jest/globals", "jest-environment-node"]
-    },
-    {
-      "groupName": "Docker Images",
-      "matchManagers": ["dockerfile", "docker-compose"],
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
-      "automerge": true,
-      "automergeType": "pr",
-      "platformAutomerge": true,
-      "automergeStrategy": "merge-commit"
     }
   ]
 }
