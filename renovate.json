@@ -12,21 +12,7 @@
   "schedule": ["at any time"],
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
-  "automerge": true,
-  "automergeType": "pr",
-  "platformAutomerge": true,
-  "automergeStrategy": "merge-commit",
   "packageRules": [
-       {
-      "groupName": "Docker Images",
-      "matchManagers": ["dockerfile", "docker-compose"],
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
-      "automerge": true,
-      "automergeType": "pr",
-      "platformAutomerge": true,
-      "automergeStrategy": "merge-commit"
-    },
      {
       "matchManagers": ["npm"],
       "matchDepTypes": ["dependencies", "devDependencies", "peerDependencies"],
@@ -56,6 +42,16 @@
       "groupName": "Testing Frameworks",
       "matchManagers": ["npm"],
       "matchPackageNames": ["jest", "@jest/globals", "jest-environment-node"]
+    },
+     {
+      "groupName": "Docker Images",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major", "minor", "patch", "digest"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true,
+      "automergeStrategy": "merge-commit"
     }
   ]
 }
