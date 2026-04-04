@@ -19,7 +19,7 @@
     "@sap/eslint-config": "0.5.1",
     "@tsconfig/node24": "24.0.4",
     "@types/node": "24.12.2",
-    "eslint": "10.1.0",
+    "eslint": "10.2.0",
     "jest": "30.3.0",
     "jest-environment-node": "30.3.0",
     "prettier": "3.8.1",
